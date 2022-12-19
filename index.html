@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Juros Compostos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Ciclic</h1>
+    <div class="main">
+
+        <form action="">
+          
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="input-name" placeholder="Nome" required>
+            </div>
+            <div>
+                <label for="monthly-payment">Mensalidade:</label>
+                <input type="number" name="monthly-payment" id="monthly-payment" placeholder="R$ 10.00" required>
+            </div>
+            <div>
+                <label for="tax">Taxa de juros:</label>
+                <select name="tax" id="tax">
+                    <option value="1 ano">1 ano</option>
+                    <option value="2 ano">2 ano</option>
+                    <option value="3 ano">3 ano</option>
+                    <option value="4 ano">4 ano</option>
+                </select>
+
+            </div>
+            <div>
+                <label for="">Tempo:</label>
+                <select name="" id="time">
+                    <option value="1 ano">1 ano</option>
+                    <option value="2 ano">2 ano</option>
+                    <option value="3 ano">3 ano</option>
+                    <option value="4 ano">4 ano</option>
+                </select>
+
+            </div>
+       
+            <button type="submit" id="btn-subscribe">Simulador</button>
+
+        </form>
+    </div>
+
+    <!-- <div class="hidden-msg">
+
+    </div> -->
+    <script src="main.js"></script>
+</body>
+
+</html>
