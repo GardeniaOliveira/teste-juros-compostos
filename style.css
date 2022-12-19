@@ -17,24 +17,19 @@ h1{
     padding: 10px;
     margin-top: 30px;
 }
-.main{
+.box{
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+form, .box-msg{
     background-color: #e1e1e1;
     border-radius: 4px;
     padding: 20px;
 }
-  form div{
+form div{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -57,12 +52,19 @@ input, select{
 input:focus-visible{
     border: 2px solid orangered;
 }
-button{
-     width: 100%;
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: orangered;
+}
+button, #btn-subscribe-again{
+    width: 100%;
     height: 8vh; 
     background-color: orangered;
     color:rgb(49, 6, 90) ;
     font-size: 18px;
+    font-weight: bolder;
     border:4px solid orangered;
     margin-top: 14px;
 }
@@ -70,6 +72,23 @@ button:hover{
     background-color:rgb(49, 6, 90) ;
     border:4px solid rgb(49, 6, 90);
     color: orangered;
-    font-size: 18px;
-    font-weight: bolder;
+    pointer-events: auto;
+}
+#btn-subscribe-again{
+    width: 50%;
+}
+
+.box-msg{
+  height: 30vh;
+ font-size: 16px;
+ padding: 20px;
+ margin: 0 20px;
+ display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+ 
+}
+.hidden{
+    display: none;
 }

@@ -14,9 +14,9 @@
 
 <body>
     <h1>Ciclic</h1>
-    <div class="main">
+    <div class="box">
 
-        <form action="">
+         <form action="" id="form"> 
           
             <div>
                 <label for="name">Nome:</label>
@@ -29,33 +29,41 @@
             <div>
                 <label for="tax">Taxa de juros:</label>
                 <select name="tax" id="tax">
-                    <option value="1 ano">1 ano</option>
-                    <option value="2 ano">2 ano</option>
-                    <option value="3 ano">3 ano</option>
-                    <option value="4 ano">4 ano</option>
+                    <option value="0.517">0,517% </option>
+                    <option value="0.518">0,518% </option>
+                    <option value="0.519">0,519% </option>
+                    <option value="0.520">0,520% </option>
                 </select>
 
             </div>
             <div>
                 <label for="">Tempo:</label>
                 <select name="" id="time">
-                    <option value="1 ano">1 ano</option>
-                    <option value="2 ano">2 ano</option>
-                    <option value="3 ano">3 ano</option>
-                    <option value="4 ano">4 ano</option>
+                    <option value="1">1 ano</option>
+                    <option value="2">2 anos</option>
+                    <option value="3">3 anos</option>
+                    <option value="4">4 anos</option>
                 </select>
 
             </div>
-       
             <button type="submit" id="btn-subscribe">Simulador</button>
-
-        </form>
+           
+        </form> 
     </div>
+   
+        <div class="box">
 
-    <!-- <div class="hidden-msg">
+            <div class=" box-msg hidden">
+                <div id="msg">
 
-    </div> -->
-    <script src="main.js"></script>
+                </div>
+                <button type="submit" id="btn-subscribe-again"><a href="index.html">Simular novamente</a></button>
+            </div>
+          
+         
+        </div>
+    
+   <script src="main.js"></script> 
 </body>
 
 </html>
