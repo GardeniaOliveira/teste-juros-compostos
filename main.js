@@ -32,7 +32,7 @@ btn.addEventListener('click', (e) => {
 function validadeForm()  {
     const regexName =/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
     
-    if(inputName.value !== "" && inputName.value.match(regexName) ){
+    if(inputName.value !== "" && inputName.value.match(regexName) && inputName.value.length >= 3){
       console.log('passou aquis')
         formCompleteName = true;
         formErrorName = false;
@@ -48,7 +48,7 @@ function validadeForm()  {
             formErrorName = true;
             
         }
-    if(inputMonthlyPayment.value != ""){
+    if(inputMonthlyPayment.value != "" && inputMonthlyPayment.value >= 0){
         formCompletePayment = true;
         formErrorPayment = false;
         error[1].innerText =" ";

@@ -12,6 +12,7 @@ body{
     background-color: var( --primary-color);
     color: var( --primary-color);
     font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 }
 h1{
     color: var( --secondary-color);
@@ -45,6 +46,9 @@ form div{
 label{
     font-size: 16px;
     padding: 10px;
+}
+::placeholder, select{
+    font-size: 14px;
 }
 input{
     padding: 10px;
