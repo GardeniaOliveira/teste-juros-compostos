@@ -65,7 +65,7 @@ function validadeForm()  {
 
 function calculate() {
     console.log(`${inputMonthlyPayment.value} * (((1 + ${tax.value}) ^ (${time.value} * 12) - 1) / ${tax.value})`)
-    fetch('http://api.mathjs.org/v4/', {
+    fetch('https://api.mathjs.org/v4/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
