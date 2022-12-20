@@ -6,5 +6,7 @@ O projeto consiste em um desafio proposto no curso Fullstack JavaScrit, onde foi
 HTML;
 CSS;
 javaScript;
+
 🛠️ Acesso ao projeto:
+
 Para acessar o projeto basta clicar no link abaixo : 
