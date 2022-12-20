@@ -9,49 +9,55 @@ const msg = document.getElementById('msg');
 const boxMsg = document.querySelector('.box-msg');
 const error = document.querySelectorAll('.error');
 let expr;
-let formComplete = false;
-let formError = true;
+let formCompleteName = false;
+let formErrorName = true;
+let formCompletePayment = false;
+let formErrorPayment = true;
 let nameMsg = document.querySelector('.name');
 let paymentMsg = document.querySelector('.payment');
 let resultMsg = document.querySelector('.result');
 let timeMsg = document.querySelector('.time');
 let taxMsg = document.querySelector('.tax');
-const regexName =/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi;
+
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     validadeForm()
-    if(formComplete === true && formError === false) {
+    if(formCompleteName === true && formCompletePayment === true && formErrorName === false && formErrorPayment === false) {
         calculate()
-    }
-   
-   
+    }  
    
 })
+
 function validadeForm()  {
+    const regexName =/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
     
     if(inputName.value !== "" && inputName.value.match(regexName) ){
+      console.log('passou aquis')
+        formCompleteName = true;
+        formErrorName = false;
         error[0].innerText =" ";
         inputName.style.border = "1px solid green";
-        formComplete = true;
-        formError = false;
-    } else{
+       
+    } 
+    
+    else{
             error[0].innerText ="Por favor, digite seu nome";
             inputName.style.border = "1px solid red";
-            formComplete = false;
-            formError = true;
+            formCompleteName = false;
+            formErrorName = true;
             
         }
     if(inputMonthlyPayment.value != ""){
-        formComplete = true;
-        formError = false;
+        formCompletePayment = true;
+        formErrorPayment = false;
         error[1].innerText =" ";
         inputMonthlyPayment.style.border = "1px solid green";
        
 
     } else{
-        formComplete = false;
-        formError = true;
+        formCompletePayment = false;
+        formErrorPayment = true;
         error[1].innerText ="Por favor, digite um valor";
         inputMonthlyPayment.style.border = "1px solid red";
     }
