@@ -4,8 +4,11 @@ O projeto consiste em um desafio proposto no curso Fullstack JavaScrit, onde foi
 ✔️ Tecnologias ultilizadas:
 
 HTML;
+
 CSS;
+
 javaScript;
+
 
 🛠️ Acesso ao projeto:
 
