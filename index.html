@@ -16,25 +16,26 @@
     <h1>Ciclic</h1>
     <div class="box">
 
-         <form action="" id="form"> 
+         <form action="" id="form" method="post"> 
           
             <div>
-                <label for="name">Nome:</label>
+                <label for="name">Nome*:</label>
                 <input type="text" name="name" id="input-name" placeholder="Nome" required>
             </div>
+            <p class="error"></p>
             <div>
-                <label for="monthly-payment">Mensalidade:</label>
+                <label for="monthly-payment">Mensalidade*:</label>
                 <input type="number" name="monthly-payment" id="monthly-payment" placeholder="R$ 10.00" required>
             </div>
+            <p class="error"></p>
             <div>
                 <label for="tax">Taxa de juros:</label>
                 <select name="tax" id="tax">
-                    <option value="0.517">0,517% </option>
-                    <option value="0.518">0,518% </option>
-                    <option value="0.519">0,519% </option>
-                    <option value="0.520">0,520% </option>
+                    <option value="0.00517">0,517% </option>
+                    <option value="0.00518">0,518% </option>
+                    <option value="0.00519">0,519% </option>
+                    <option value="0.00520">0,520% </option>
                 </select>
-
             </div>
             <div>
                 <label for="">Tempo:</label>
@@ -55,7 +56,10 @@
 
             <div class=" box-msg hidden">
                 <div id="msg">
+                   <p>
 
+                    Olá <span class="name"></span>, investindo <span class="payment"></span> todo mês, você terá <span class="result"></span> em <span class="time"></span> sob uma taxa de juros de <span class="tax"></span> ao mês.
+                </p>
                 </div>
                 <button type="submit" id="btn-subscribe-again"><a href="index.html">Simular novamente</a></button>
             </div>

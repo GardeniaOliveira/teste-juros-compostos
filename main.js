@@ -7,31 +7,77 @@ const btn = document.getElementById('btn-subscribe');
 const btnAgain = document.getElementById('btn-subscribe-again');
 const msg = document.getElementById('msg');
 const boxMsg = document.querySelector('.box-msg');
+const error = document.querySelectorAll('.error');
 let expr;
+let formComplete = false;
+let formError = true;
+let nameMsg = document.querySelector('.name');
+let paymentMsg = document.querySelector('.payment');
+let resultMsg = document.querySelector('.result');
+let timeMsg = document.querySelector('.time');
+let taxMsg = document.querySelector('.tax');
+const regexName =/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi;
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
-    calculate()
+    validadeForm()
+    if(formComplete === true && formError === false) {
+        calculate()
+    }
+   
    
    
 })
-function calculate() {
+function validadeForm()  {
+    
+    if(inputName.value !== "" && inputName.value.match(regexName) ){
+        error[0].innerText =" ";
+        inputName.style.border = "1px solid green";
+        formComplete = true;
+        formError = false;
+    } else{
+            error[0].innerText ="Por favor, digite seu nome";
+            inputName.style.border = "1px solid red";
+            formComplete = false;
+            formError = true;
+            
+        }
+    if(inputMonthlyPayment.value != ""){
+        formComplete = true;
+        formError = false;
+        error[1].innerText =" ";
+        inputMonthlyPayment.style.border = "1px solid green";
+       
 
+    } else{
+        formComplete = false;
+        formError = true;
+        error[1].innerText ="Por favor, digite um valor";
+        inputMonthlyPayment.style.border = "1px solid red";
+    }
+}
+
+function calculate() {
+    console.log(`${inputMonthlyPayment.value} * (((1 + ${tax.value}) ^ (${time.value} * 12) - 1) / ${tax.value})`)
     fetch('http://api.mathjs.org/v4/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "expr": `${inputMonthlyPayment.value} * (((1 + ${tax.value}) ^ ${time.value} - 1) / ${tax.value})`
+            "expr": `${inputMonthlyPayment.value} * (((1 + ${tax.value}) ^ (${time.value} * 12) - 1) / ${tax.value}).toFixed(2)`
+            
         })
+       
     })
         .then(response => {
+           
             return response.json()
         })
         .then(data => {
+          
             console.log(data.result)
-            expr = Math.round(data.result);
+            expr = data.result;
             form.classList.add('hidden');
             boxMsg.classList.remove('hidden');
             showMsg()
@@ -42,5 +88,16 @@ function calculate() {
 
 
 function showMsg() {
-    msg.innerText = `Olá ${inputName.value}, investindo R$${inputMonthlyPayment.value} todo mês, você terá R$${expr} em ${time.value} anos sob uma taxa de juros de ${tax.value}% ao mês.`
+    nameMsg.innerText = inputName.value;
+    paymentMsg.innerText = `R$ ${inputMonthlyPayment.value}` ;
+     resultMsg.innerText = `R$ ${expr}` ;
+     if(time.value === '1'){
+        timeMsg.innerText = `${time.value} ano` ;
+     } else{
+        timeMsg.innerText = `${time.value} anos`;
+     }
+   
+     taxMsg.innerText = `${tax.value} %` ;
+
 }
+
